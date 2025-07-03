@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Estupiñan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="menu-icon" onclick="toggleNav()">⋮</div>
+  <header>
+    <img src="logo.png" alt="Estupiñan Logo" class="logo">
+    <div class="cart-icon" onclick="toggleCart()">🛒</div>
+  </header>
+  <nav id="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="#support">Support</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="shop">
+      <h2>Our Products</h2>
+      <div class="tabs">
+        <button class="tab-button" onclick="showTab('female')">Female Wear</button>
+        <button class="tab-button" onclick="showTab('male')">Male Wear</button>
+        <button class="tab-button" onclick="showTab('jewellery')">Jewellery</button>
+      </div>
+
+      <!-- Female Products -->
+      <div id="female" class="tab-content">
+        <div class="product-grid">
+          <div class="product">
+            <img src="shirt.jpg" alt="Blouse">
+            <h3>Blouse</h3>
+            <p>$45</p>
+            <button onclick="addToCart('Blouse', 45)">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="skirt.jpg" alt="Skirt">
+            <h3>Skirt</h3>
+            <p>$40</p>
+            <button onclick="addToCart('Skirt', 40)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Male Products -->
+      <div id="male" class="tab-content hidden">
+        <div class="product-grid">
+          <div class="product">
+            <img src="tshirt.jpeg" alt="T-shirt">
+            <h3>Graphic Tee</h3>
+            <p>$25</p>
+            <button onclick="addToCart('T-shirt', 25)">Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="cargo.jpg" alt="Black Cargos">
+            <h3>Black Cargos</h3>
+            <p>$30</p>
+            <button onclick="addToCart('Black Cargos', 30)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jewellery Products -->
+      <div id="Jewellery" class="tab-content hidden">
+        <div class="product-grid">
+          <div class="product">
+            <img src="ring.jpeg" alt="ring">
+            <h3>Greek Ring</h3>
+            <p>$40</p>
+            <button onclick="addToCart('Greek ring', 40)>Add to Cart</button>
+          </div>
+          <div class="product">
+            <img src="neck.jpg" alt="Necklace">
+            <h3>Mythic Necklace</h3>
+            <p>$50</p>
+            <button onclick="addToCart('Mythic Necklace', 50)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+   
+       
+    </section>
+
+    <section id="cart" class="cart hidden">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p id="cart-total">Total: $0</p>
+    </section>
+  </main>
+  <footer>
+    <section id="support">
+      <h3>Need Help?</h3>
+      <p>Email: support@estupinan.com</p>
+      <p>Instagram: <a href="https://instagram.com/estupinan" target="_blank">@estupinan</a></p>
+    </section>
+  </footer>
+  <script>
+    function toggleNav() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+
+    function toggleCart() {
+      document.getElementById("cart").classList.toggle("hidden");
+    }
+
+    let cart = [];
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.product} - $${item.price}`;
+        cartItems.appendChild(li);
+        total += item.price;
+      });
+      cartTotal.textContent = `Total: $${total}`;
+    }
+
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
