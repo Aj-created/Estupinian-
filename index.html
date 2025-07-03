@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estupiñan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="menu-icon" onclick="toggleNav()">⋮</div>
+  <header>
+    <img src="logo.png" alt="Estupiñan Logo" class="logo">
+    <div class="cart-icon" onclick="window.location.href='shop.html'">🛒</div>
+  </header>
+  <nav id="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="#support">Support</a></li>
+    </ul>
+  </nav>
+  <main>
+<section class="about">
+  <h1>Welcome to Estupiñan</h1>
+  <p>
+    Estupiñan is not just a brand — it’s a revival. A rebirth of culture, art, and power woven into every thread, metal, and silhouette. We draw from the pillars of ancient civilizations — where gods walked among men, and fashion was a symbol of identity, not industry. Inspired by Greek goddesses, African royalty, sacred geometry, and symbols of rebellion, Estupiñan blends bold heritage with modern minimalism.
+  </p>
+  <p>
+    Every piece is handmade with purpose. Whether it's the rugged strength of our cargos, the fluid elegance of our female line, or the mystic energy locked in our jewellery — we design not for trends, but for truths. 
+    For the ones who walk different. Who speak through silence. Who carry the weight of legacy and still dare to dream louder.
+  </p>
+  <p>
+    Our mission is simple — build wearable art that awakens. That roots you in where you come from, and points you toward where you could go. Fashion is not the goal — it is the language.
+    And Estupiñan? That’s the voice.
+  </p>
+</section>
+
+     </main>
+  <footer>
+    <section id="support">
+      <h3>Need Help?</h3>
+      <p>Email: support@estupinan.com</p>
+      <p>Instagram: <a href="https://instagram.com/estupinan_designs" target="_blank">@estupinan_designs</a></p>
+    </section>
+  </footer>
+  <script>
+    function toggleNav() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
